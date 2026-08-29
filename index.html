@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KT Studio - Professional CV Writer</title>
+    <!-- Font Awesome නිල සබැඳිය එක් කර ඇත -->
+    <link rel="stylesheet" href="https://cloudflare.com">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: #f9f9f9; color: #333; }
@@ -64,14 +66,8 @@
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes typingEffect {
@@ -134,10 +130,10 @@
         .contact h2 { font-size: 32px; letter-spacing: 1px; margin-bottom: 20px; text-transform: uppercase; color: #fff; font-weight: 700; }
         .contact-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 30px; border: 3px solid #333; }
         
+        /* අයිකන් සඳහා සකස් කළ අලුත් CSS */
         .logo-links { display: flex; justify-content: center; gap: 40px; margin-bottom: 20px; align-items: center; }
-        .logo-btn { width: 65px; height: 65px; transition: transform 0.2s; }
-        .logo-btn:hover { transform: scale(1.15); }
-        .logo-btn img { width: 100%; height: 100%; object-fit: contain; }
+        .logo-btn { font-size: 60px; transition: transform 0.2s; display: inline-block; }
+        .logo-btn:hover { transform: scale(1.18); }
 
         .about-me { background: #f4f4f4; color: #333; padding: 80px 20px; text-align: center; border-top: 1px solid #ddd; }
         .about-me h2 { font-size: 32px; margin-bottom: 20px; color: #1a1a1a; font-weight: 700; }
@@ -186,12 +182,13 @@
         <h2>Instant Connectivity</h2>
         <img src="images/connect.jpg" alt="Connect" class="contact-img">
         
+        <!-- Font Awesome ලෝගෝ අයිකන්ස් -->
         <div class="logo-links">
-            <a href="https://wa.me" target="_blank" class="logo-btn">
-                <img src="https://wikimedia.org" alt="WhatsApp">
+            <a href="https://wa.me" target="_blank" class="logo-btn" style="color: #25D366;">
+                <i class="fab fa-whatsapp"></i>
             </a>
-            <a href="https://t.me" target="_blank" class="logo-btn">
-                <img src="https://wikimedia.org" alt="Telegram">
+            <a href="https://t.me" target="_blank" class="logo-btn" style="color: #0088cc;">
+                <i class="fab fa-telegram"></i>
             </a>
         </div>
     </section>
