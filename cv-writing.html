@@ -5,10 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV Writing Services - KT Studio</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; 
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
         
         body { 
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/cv-bg.jpg'); 
+            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('images/cv-bg.jpg'); 
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -18,53 +26,59 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 40px 20px;
+            padding: 20px 15px;
         }
 
         .container { 
+            width: 100%;
             max-width: 650px; 
-            background: rgba(255, 255, 255, 0.85); 
+            background: rgba(255, 255, 255, 0.90); 
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            padding: 50px 40px; 
+            padding: clamp(25px, 6vw, 50px) clamp(20px, 5vw, 40px); 
             border-radius: 16px; 
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.6);
             text-align: center;
         }
 
         .back-home { 
-            display: inline-block; 
-            margin-bottom: 30px; 
+            display: inline-flex; 
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 20px; 
             color: #555; 
             font-weight: 600; 
             text-decoration: none;
             transition: color 0.3s;
             font-size: 15px;
+            padding: 5px 0;
         }
         .back-home:hover { color: #1a365d; }
 
         h1 { 
             color: #e60000; 
             margin-bottom: 20px; 
-            font-size: 38px; 
+            font-size: clamp(26px, 6vw, 38px); 
             font-weight: 800; 
+            line-height: 1.2;
         }
 
         .description { 
-            font-size: 17px; 
-            line-height: 1.7; 
+            font-size: clamp(15px, 3.5vw, 17px); 
+            line-height: 1.65; 
             color: #444; 
-            margin-bottom: 35px; 
+            margin-bottom: 30px; 
             text-align: justify;
+            text-justify: inter-word;
         }
 
         .details-box {
             background: rgba(26, 54, 93, 0.05);
             border-left: 4px solid #1a365d;
-            padding: 25px;
+            padding: clamp(18px, 4vw, 25px);
             border-radius: 0 8px 8px 0;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             text-align: left;
             border-top: 1px solid rgba(0, 0, 0, 0.05);
             border-right: 1px solid rgba(0, 0, 0, 0.05);
@@ -72,15 +86,19 @@
         }
 
         .price-line {
-            font-size: 18px;
+            font-size: clamp(16px, 4vw, 18px);
             font-weight: 600;
             color: #222;
-            margin-bottom: 18px;
+            margin-bottom: 15px;
             letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
         }
 
         .price-line span {
-            font-size: 24px;
+            font-size: clamp(20px, 5vw, 24px);
             color: #1a365d;
             font-weight: 700;
         }
@@ -91,45 +109,63 @@
 
         .feature-item {
             display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 15px;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: clamp(14px, 3.2vw, 15px);
             color: #444;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-weight: 500;
+            line-height: 1.4;
         }
 
         .feature-item:last-child { margin-bottom: 0; }
         
         .feature-icon {
-            color: #1a365d;
+            color: #25D366;
             font-weight: bold;
             font-size: 16px;
+            line-height: 1;
+            margin-top: 2px;
         }
 
         .contact-section {
             border-top: 1px solid rgba(0, 0, 0, 0.1);
-            padding-top: 30px;
+            padding-top: 25px;
         }
 
         .btn-order { 
             background: #25D366; 
             color: white; 
-            padding: 16px 40px; 
-            font-size: 18px; 
+            padding: 15px 30px; 
+            font-size: clamp(16px, 4vw, 18px); 
             font-weight: 600; 
             border-radius: 30px; 
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
             transition: background 0.3s, transform 0.2s; 
             text-decoration: none; 
             width: 100%;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            -webkit-tap-highlight-color: transparent;
         }
-        .btn-order:hover { background: #1ebd58; transform: translateY(-2px); }
-        .btn-order img { width: 24px; height: 24px; object-fit: contain; }
+        .btn-order:active { transform: scale(0.98); }
+        .btn-order:hover { background: #1ebd58; }
+        .btn-order img { width: 22px; height: 22px; object-fit: contain; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 480px) {
+            body {
+                background-attachment: scroll; /* Mobile smooth scrolling */
+            }
+            .container {
+                background: rgba(255, 255, 255, 0.95); /* Better readability on mobile */
+            }
+            .description {
+                text-align: left; /* Better flow on small mobile screens */
+            }
+        }
     </style>
 </head>
 <body>
@@ -144,15 +180,15 @@
         <div class="details-box">
             <div class="price-line">Starting From: <span>LKR 300.00</span></div>
             <ul class="features-list">
-                <li class="feature-item"><span class="feature-icon">?</span> 100% ATS-ready clean layouts</li>
-                <li class="feature-item"><span class="feature-icon">?</span> Regular turnaround within 24-48 hours</li>
-                <li class="feature-item"><span class="feature-icon">?</span> Unlimited structural revisions</li>
-                <li class="feature-item"><span class="feature-icon">?</span> Custom tailored text for your specific industry</li>
+                <li class="feature-item"><span class="feature-icon">&#10004;</span> 100% ATS-ready clean layouts</li>
+                <li class="feature-item"><span class="feature-icon">&#10004;</span> Regular turnaround within 24-48 hours</li>
+                <li class="feature-item"><span class="feature-icon">&#10004;</span> Unlimited structural revisions</li>
+                <li class="feature-item"><span class="feature-icon">&#10004;</span> Custom tailored text for your specific industry</li>
             </ul>
         </div>
 
         <div class="contact-section">
-            <a href="https://wa.me" target="_blank" class="btn-order">
+            <a href="https://wa.me" target="_blank" rel="noopener noreferrer" class="btn-order">
                 <img src="images/whatsapp.png" alt="WhatsApp">
                 Order on WhatsApp
             </a>
