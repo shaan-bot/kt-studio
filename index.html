@@ -5,63 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KT Studio - Professional CV Writer</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: #f9f9f9; color: #333; }
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; 
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+        body { background-color: #f9f9f9; color: #333; overflow-x: hidden; }
         a { text-decoration: none; }
-        nav { background: #ffffff; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-        .nav-logo { font-size: 26px; font-weight: 800; background: linear-gradient(45deg, #e60000, #ff4d4d, #0088cc, #e60000); background-size: 300% 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: logoColorLoop 4s ease infinite; }
+
+        /* Navigation */
+        nav { background: #ffffff; padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        .nav-logo { font-size: clamp(20px, 4vw, 26px); font-weight: 800; background: linear-gradient(45deg, #e60000, #ff4d4d, #0088cc, #e60000); background-size: 300% 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: logoColorLoop 4s ease infinite; }
         @keyframes logoColorLoop { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        .nav-links { list-style: none; display: flex; gap: 30px; }
-        .nav-links a { color: #555; font-weight: 600; font-size: 16px; }
+        .nav-links { list-style: none; display: flex; gap: 20px; }
+        .nav-links a { color: #555; font-weight: 600; font-size: 16px; transition: color 0.3s; }
         .nav-links a:hover { color: #e60000; }
-        .hero { background-image: url('images/profile.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 80px 10%; color: white; overflow: hidden; }
-        .animated-text-container { display: flex; flex-direction: column; gap: 5px; margin-bottom: 25px; }
-        .hero h2 { font-size: 26px; font-weight: 600; color: #ffffff; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); opacity: 0; animation: fadeInUp 0.8s ease-out forwards; animation-delay: 0.2s; }
-        .hero h1 { font-size: 52px; font-weight: 800; color: #e60000; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); overflow: hidden; white-space: nowrap; border-right: 4px solid #e60000; width: 0; animation: typingEffect 2s steps(30, end) forwards, blinkCursor 0.75s step-end infinite alternate; animation-delay: 1s; }
+
+        /* Hero Section */
+        .hero { background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('images/profile.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 80px 8%; color: white; }
+        .animated-text-container { display: flex; flex-direction: column; gap: 5px; margin-bottom: 25px; max-width: 100%; }
+        .hero h2 { font-size: clamp(18px, 3.5vw, 26px); font-weight: 600; color: #ffffff; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); opacity: 0; animation: fadeInUp 0.8s ease-out forwards; animation-delay: 0.2s; }
+        
+        /* Smooth Responsive Typing Animation */
+        .hero h1 { 
+            font-size: clamp(22px, 5.5vw, 52px); 
+            font-weight: 800; 
+            color: #e60000; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8); 
+            overflow: hidden; 
+            white-space: nowrap; 
+            border-right: 3px solid #e60000; 
+            width: 0; 
+            max-width: max-content;
+            animation: typingEffect 2.2s steps(28, end) forwards, blinkCursor 0.75s step-end infinite alternate; 
+            animation-delay: 1s; 
+        }
+
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes typingEffect { from { width: 0; } to { width: 100%; } }
         @keyframes blinkCursor { from { border-color: transparent; } to { border-color: #e60000; } }
-        .hero p { max-width: 600px; margin: 0 0 35px 0; font-size: 18px; color: #fff; line-height: 1.7; text-shadow: 1px 1px 4px rgba(0,0,0,0.8); opacity: 0; animation: fadeInUp 0.8s ease-out forwards; animation-delay: 3s; }
-        .btn-hire { background: #e60000; color: white; padding: 12px 35px; font-size: 18px; font-weight: bold; border-radius: 25px; display: inline-block; opacity: 0; animation: fadeInUp 0.8s ease-out forwards; animation-delay: 3.5s; }
+
+        .hero p { max-width: 600px; margin: 0 0 35px 0; font-size: clamp(15px, 2.5vw, 18px); color: #fff; line-height: 1.7; text-shadow: 1px 1px 4px rgba(0,0,0,0.8); opacity: 0; animation: fadeInUp 0.8s ease-out forwards; animation-delay: 3.2s; }
+        .btn-hire { background: #e60000; color: white; padding: 12px 35px; font-size: 18px; font-weight: bold; border-radius: 25px; display: inline-block; opacity: 0; animation: fadeInUp 0.8s ease-out forwards; animation-delay: 3.6s; transition: background 0.3s, transform 0.3s; }
         .btn-hire:hover { background: #b30000; transform: scale(1.05); }
-        .services { padding: 100px 50px; text-align: center; background: #ffffff; }
-        .services h2 { font-size: 38px; margin-bottom: 60px; color: #1a1a1a; position: relative; font-weight: 800; }
+
+        /* Services Section */
+        .services { padding: 80px 20px; text-align: center; background: #ffffff; }
+        .services h2 { font-size: clamp(26px, 4vw, 38px); margin-bottom: 50px; color: #1a1a1a; position: relative; font-weight: 800; }
         .services h2::after { content: ''; width: 80px; height: 4px; background: #e60000; display: block; margin: 12px auto 0 auto; }
-        .services-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; max-width: 1300px; margin: 0 auto; }
-        .service-card { background: #fdfdfd; border-radius: 12px; overflow: hidden; width: 360px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; padding-bottom: 30px; border: 1px solid #eee; display: flex; flex-direction: column; align-items: center; }
+        .services-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1300px; margin: 0 auto; }
+        .service-card { background: #fdfdfd; border-radius: 12px; overflow: hidden; width: 100%; max-width: 360px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; padding-bottom: 30px; border: 1px solid #eee; display: flex; flex-direction: column; align-items: center; }
         .service-card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,0,0,0.15); }
-        .service-card img { width: 100%; height: 350px; object-fit: cover; }
-        .service-card h3 { font-size: 22px; margin: 25px 0 20px 0; color: #111; font-weight: 700; padding: 0 10px; }
+        .service-card img { width: 100%; height: 260px; object-fit: cover; }
+        .service-card h3 { font-size: clamp(18px, 3vw, 22px); margin: 20px 0 15px 0; color: #111; font-weight: 700; padding: 0 15px; }
         .btn-view { display: inline-block; padding: 10px 30px; background: transparent; border: 2px solid #e60000; color: #e60000; font-weight: bold; border-radius: 5px; font-size: 16px; transition: 0.3s; margin-top: auto; }
         .btn-view:hover { background: #e60000; color: white; }
-        .contact { background: #000000; color: white; padding: 90px 20px; text-align: center; position: relative; overflow: hidden; }
+
+        /* Contact Section */
+        .contact { background: #000000; color: white; padding: 80px 20px; text-align: center; position: relative; overflow: hidden; }
         .moving-line-left, .moving-line-right { position: absolute; width: 4px; height: 120px; border-radius: 10px; }
         .moving-line-left { left: 3%; background: linear-gradient(180deg, transparent, #25D366, #fff, #25D366, transparent); animation: moveLeftLineVertical 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate; }
         .moving-line-right { right: 3%; background: linear-gradient(180deg, transparent, #0088cc, #fff, #0088cc, transparent); animation: moveRightLineVertical 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate; }
-        @keyframes moveLeftLineVertical { 0% { transform: translateY(-30%); filter: drop-shadow(0 0 2px #25D366); opacity: 0.4; } 100% { transform: translateY(30%); filter: drop-shadow(0 0 15px #25D366) brightness(1.2); opacity: 1; } }
-        @keyframes moveRightLineVertical { 0% { transform: translateY(30%); filter: drop-shadow(0 0 2px #0088cc); opacity: 0.4; } 100% { transform: translateY(-30%); filter: drop-shadow(0 0 15px #0088cc) brightness(1.2); opacity: 1; } }
-        .contact h2 { font-size: 34px; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; font-weight: 800; margin-bottom: 15px; }
-        .contact-tagline { font-size: 19px; color: #ccc; margin-bottom: 40px; font-weight: 500; }
-        .connectivity-grid { display: flex; justify-content: center; gap: 100px; flex-wrap: wrap; max-width: 600px; margin: 0 auto; position: relative; z-index: 5; }
-        
-        .connect-column { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 20px; width: 180px; }
-        .btn-custom-logo { width: 100%; padding: 15px 0; font-size: 18px; font-weight: bold; border-radius: 30px; color: white; text-align: center; display: inline-block; }
+        @keyframes moveLeftLineVertical { 0% { transform: translateY(-30%); opacity: 0.4; } 100% { transform: translateY(30%); opacity: 1; } }
+        @keyframes moveRightLineVertical { 0% { transform: translateY(30%); opacity: 0.4; } 100% { transform: translateY(-30%); opacity: 1; } }
+        .contact h2 { font-size: clamp(24px, 4vw, 34px); letter-spacing: 1.5px; text-transform: uppercase; color: #fff; font-weight: 800; margin-bottom: 15px; }
+        .contact-tagline { font-size: clamp(15px, 2.5vw, 19px); color: #ccc; margin-bottom: 40px; font-weight: 500; }
+        .connectivity-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; max-width: 600px; margin: 0 auto; position: relative; z-index: 5; }
+        .connect-column { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 15px; width: 140px; }
+        .btn-custom-logo { width: 100%; padding: 12px 0; font-size: 16px; font-weight: bold; border-radius: 30px; color: white; text-align: center; display: inline-block; }
         .logo-wa { background: #25D366; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); }
-        .logo-wa:hover { box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6); }
         .logo-tg { background: #0088cc; box-shadow: 0 4px 20px rgba(0, 136, 204, 0.3); }
-        .logo-tg:hover { box-shadow: 0 6px 25px rgba(0, 136, 204, 0.6); }
-        
-        .logo-wrapper { height: 60px; display: flex; align-items: center; justify-content: center; }
-        .uploaded-logo-btn { transition: transform 0.2s; display: inline-block; }
-        .uploaded-logo-btn:hover { transform: scale(1.15); }
-        
-        .logo-img-wa { width: 55px; height: 55px; object-fit: contain; }
-        .logo-img-tg { width: 50px; height: 50px; object-fit: contain; }
+        .logo-wrapper { height: 50px; display: flex; align-items: center; justify-content: center; }
+        .logo-img-wa { width: 48px; height: 48px; object-fit: contain; }
+        .logo-img-tg { width: 45px; height: 45px; object-fit: contain; }
 
-        .about-me { background: #f4f4f4; color: #333; padding: 80px 20px; text-align: center; border-top: 1px solid #ddd; }
-        .about-me h2 { font-size: 32px; margin-bottom: 20px; color: #1a1a1a; font-weight: 700; }
-        .about-me p { max-width: 800px; margin: 0 auto; font-size: 19px; line-height: 1.8; color: #555; }
+        /* About Section & Footer */
+        .about-me { background: #f4f4f4; color: #333; padding: 70px 20px; text-align: center; border-top: 1px solid #ddd; }
+        .about-me h2 { font-size: clamp(24px, 4vw, 32px); margin-bottom: 20px; color: #1a1a1a; font-weight: 700; }
+        .about-me p { max-width: 800px; margin: 0 auto; font-size: clamp(15px, 2.5vw, 19px); line-height: 1.8; color: #555; }
         footer { background: #111111; color: #777; text-align: center; padding: 25px; font-size: 14px; border-top: 1px solid #222; }
+
+        /* Android / Mobile Specific Fixes */
+        @media (max-width: 768px) {
+            nav { padding: 15px 5%; }
+            .nav-links { gap: 15px; }
+            .hero { padding: 60px 6%; min-height: 70vh; }
+            .moving-line-left, .moving-line-right { display: none; } /* Hide heavy side animations on mobile */
+            .connectivity-grid { gap: 20px; }
+        }
     </style>
 </head>
 <body>
@@ -109,19 +144,19 @@
         <div class="connectivity-grid">
             <div class="connect-column">
                 <div class="logo-wrapper">
-                    <a href="https://wa.me" target="_blank" class="uploaded-logo-btn">
+                    <a href="https://wa.me" target="_blank" rel="noopener noreferrer" class="uploaded-logo-btn">
                         <img src="images/whatsapp.png" alt="WhatsApp Logo" class="logo-img-wa">
                     </a>
                 </div>
-                <a href="https://wa.me" target="_blank" class="btn-custom-logo logo-wa">WhatsApp</a>
+                <a href="https://wa.me" target="_blank" rel="noopener noreferrer" class="btn-custom-logo logo-wa">WhatsApp</a>
             </div>
             <div class="connect-column">
                 <div class="logo-wrapper">
-                    <a href="https://t.me" target="_blank" class="uploaded-logo-btn">
+                    <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="uploaded-logo-btn">
                         <img src="images/telegram.png" alt="Telegram Logo" class="logo-img-tg">
                     </a>
                 </div>
-                <a href="https://t.me" target="_blank" class="btn-custom-logo logo-tg">Telegram</a>
+                <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="btn-custom-logo logo-tg">Telegram</a>
             </div>
         </div>
     </section>
